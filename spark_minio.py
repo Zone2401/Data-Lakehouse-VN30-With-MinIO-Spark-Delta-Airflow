@@ -19,6 +19,8 @@ def create_spark_session(app_name="Lakehouse"):
         .config("spark.hadoop.fs.s3a.impl",
                 "org.apache.hadoop.fs.s3a.S3AFileSystem") \
         .config("spark.sql.parquet.nanosAsLong", "true") \
+        .config("hive.metastore.uris", "thrift://metastore-standalone:9083") \
+        .enableHiveSupport() \
         .getOrCreate()
 
     spark.sparkContext.setLogLevel("WARN")

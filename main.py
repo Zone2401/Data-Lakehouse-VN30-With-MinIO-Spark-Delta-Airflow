@@ -1,6 +1,3 @@
-"""
-main.py - Orchestrate the Lakehouse data pipeline
-"""
 
 import sys
 import os
