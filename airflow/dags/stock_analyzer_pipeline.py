@@ -35,7 +35,7 @@ with DAG(
         task_id='transform_bronze_to_silver',
         bash_command="""
         docker exec spark-master-2 spark-submit \
-            /opt/bitnami/spark/app/bronze_to_silver.py \
+            /opt/bitnami/spark/app/jobs/bronze_to_silver.py \
             --bronze_input_path s3a://bronze/stock_data/vn30/ \
             --silver_output_path s3a://silver/stock_data/vn30/
         """,
@@ -46,7 +46,7 @@ with DAG(
         task_id='transform_silver_to_gold',
         bash_command="""
         docker exec spark-master-2 spark-submit \
-            /opt/bitnami/spark/app/silver_to_gold.py \
+            /opt/bitnami/spark/app/jobs/silver_to_gold.py \
             --dim_stock_output_path s3a://gold/stock_data/dim_stock \
             --fact_prices_output_path s3a://gold/stock_data/fact_prices \
             --top10_output_path s3a://gold/stock_data/top_10_performance

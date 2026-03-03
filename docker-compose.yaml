@@ -52,8 +52,8 @@ services:
       - "9090:8080"
       - "7077:7077"
     volumes:
-      - .:/opt/bitnami/spark/app
-      - ./spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./src:/opt/bitnami/spark/app
+      - ./config/spark/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     networks:
       - lakehouse
       
@@ -72,8 +72,8 @@ services:
       - HADOOP_USER_NAME=bitnami
       - IVY_HOME=/tmp/.ivy
     volumes:
-      - .:/opt/bitnami/spark/app
-      - ./spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./src:/opt/bitnami/spark/app
+      - ./config/spark/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     networks:
       - lakehouse
 
@@ -113,7 +113,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - .:/opt/airflow/app
+      - ./src:/opt/airflow/app
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - /var/run/docker.sock:/var/run/docker.sock
@@ -138,7 +138,7 @@ services:
       - AIRFLOW__CORE__SECRET_KEY=secret_lakehouse_key
       - MINIO_ENDPOINT=http://minio:9000
     volumes:
-      - .:/opt/airflow/app
+      - ./src:/opt/airflow/app
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - /var/run/docker.sock:/var/run/docker.sock
@@ -189,7 +189,7 @@ services:
     ports:
       - "9083:9083"
     volumes:
-      - ./hive/conf/hive-site.xml:/opt/hive/conf/hive-site.xml
+      - ./config/hive/hive-site.xml:/opt/hive/conf/hive-site.xml
     networks:
       - lakehouse
 networks:

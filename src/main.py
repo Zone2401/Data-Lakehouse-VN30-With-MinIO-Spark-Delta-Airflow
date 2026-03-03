@@ -4,11 +4,9 @@ import os
 import logging
 from datetime import datetime
 
-# Add data_ingestion folder to path 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'data_ingestion'))
-
-from stock_api     import get_stock_data
-from load_to_minio import upload_parquet, TODAY
+# Imports from the ingestion package
+from ingestion.stock_api     import get_stock_data
+from ingestion.load_to_minio import upload_parquet, TODAY
 
 # --- Setup Logging ---
 logger = logging.getLogger(__name__)
