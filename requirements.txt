@@ -1,0 +1,4 @@
+vnstock>=3.4.2
+pyarrow
+boto3
+ipython

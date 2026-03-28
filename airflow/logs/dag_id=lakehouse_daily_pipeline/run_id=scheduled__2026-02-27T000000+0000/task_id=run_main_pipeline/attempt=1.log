@@ -1,0 +1,375 @@
+[2026-02-28T11:19:25.608+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-28T11:19:25.636+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: lakehouse_daily_pipeline.run_main_pipeline scheduled__2026-02-27T00:00:00+00:00 [queued]>
+[2026-02-28T11:19:25.653+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: lakehouse_daily_pipeline.run_main_pipeline scheduled__2026-02-27T00:00:00+00:00 [queued]>
+[2026-02-28T11:19:25.659+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-02-28T11:19:25.682+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): run_main_pipeline> on 2026-02-27 00:00:00+00:00
+[2026-02-28T11:19:25.698+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'lakehouse_daily_pipeline', 'run_main_pipeline', 'scheduled__2026-02-27T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/lakehouse_dag.py', '--cfg-path', '/tmp/tmpf65m46fz']
+[2026-02-28T11:19:25.704+0000] {standard_task_runner.py:105} INFO - Job 11: Subtask run_main_pipeline
+[2026-02-28T11:19:25.705+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=253) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-28T11:19:25.706+0000] {standard_task_runner.py:72} INFO - Started process 254 to run task
+[2026-02-28T11:19:25.857+0000] {task_command.py:467} INFO - Running <TaskInstance: lakehouse_daily_pipeline.run_main_pipeline scheduled__2026-02-27T00:00:00+00:00 [running]> on host 663dbd0415ac
+[2026-02-28T11:19:25.982+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='DUC' AIRFLOW_CTX_DAG_ID='lakehouse_daily_pipeline' AIRFLOW_CTX_TASK_ID='run_main_pipeline' AIRFLOW_CTX_EXECUTION_DATE='2026-02-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-27T00:00:00+00:00'
+[2026-02-28T11:19:25.983+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-28T11:19:26.046+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-02-28T11:19:26.047+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/app/main.py']
+[2026-02-28T11:19:26.069+0000] {subprocess.py:99} INFO - Output:
+[2026-02-28T11:19:39.527+0000] {subprocess.py:106} INFO - 2026-02-28 11:19:39,526 - INFO - Bucket 'bronze' not found. Creating it...
+[2026-02-28T11:19:48.771+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2026-02-28T11:19:48.772+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 199, in _new_conn
+[2026-02-28T11:19:48.773+0000] {subprocess.py:106} INFO -     sock = connection.create_connection(
+[2026-02-28T11:19:48.773+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.774+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+[2026-02-28T11:19:48.774+0000] {subprocess.py:106} INFO -     raise err
+[2026-02-28T11:19:48.775+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+[2026-02-28T11:19:48.776+0000] {subprocess.py:106} INFO -     sock.connect(sa)
+[2026-02-28T11:19:48.777+0000] {subprocess.py:106} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2026-02-28T11:19:48.778+0000] {subprocess.py:106} INFO - 
+[2026-02-28T11:19:48.778+0000] {subprocess.py:106} INFO - The above exception was the direct cause of the following exception:
+[2026-02-28T11:19:48.779+0000] {subprocess.py:106} INFO - 
+[2026-02-28T11:19:48.779+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2026-02-28T11:19:48.780+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+[2026-02-28T11:19:48.780+0000] {subprocess.py:106} INFO -     urllib_response = conn.urlopen(
+[2026-02-28T11:19:48.780+0000] {subprocess.py:106} INFO -                       ^^^^^^^^^^^^^
+[2026-02-28T11:19:48.781+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+[2026-02-28T11:19:48.781+0000] {subprocess.py:106} INFO -     retries = retries.increment(
+[2026-02-28T11:19:48.782+0000] {subprocess.py:106} INFO -               ^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.782+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 449, in increment
+[2026-02-28T11:19:48.782+0000] {subprocess.py:106} INFO -     raise reraise(type(error), error, _stacktrace)
+[2026-02-28T11:19:48.783+0000] {subprocess.py:106} INFO -           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.783+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+[2026-02-28T11:19:48.784+0000] {subprocess.py:106} INFO -     raise value
+[2026-02-28T11:19:48.784+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+[2026-02-28T11:19:48.785+0000] {subprocess.py:106} INFO -     response = self._make_request(
+[2026-02-28T11:19:48.785+0000] {subprocess.py:106} INFO -                ^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.786+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 495, in _make_request
+[2026-02-28T11:19:48.786+0000] {subprocess.py:106} INFO -     conn.request(
+[2026-02-28T11:19:48.786+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/awsrequest.py", line 96, in request
+[2026-02-28T11:19:48.787+0000] {subprocess.py:106} INFO -     rval = super().request(method, url, body, headers, *args, **kwargs)
+[2026-02-28T11:19:48.787+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.788+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 441, in request
+[2026-02-28T11:19:48.788+0000] {subprocess.py:106} INFO -     self.endheaders()
+[2026-02-28T11:19:48.789+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+[2026-02-28T11:19:48.789+0000] {subprocess.py:106} INFO -     self._send_output(message_body, encode_chunked=encode_chunked)
+[2026-02-28T11:19:48.790+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/awsrequest.py", line 123, in _send_output
+[2026-02-28T11:19:48.790+0000] {subprocess.py:106} INFO -     self.send(msg)
+[2026-02-28T11:19:48.791+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/awsrequest.py", line 223, in send
+[2026-02-28T11:19:48.792+0000] {subprocess.py:106} INFO -     return super().send(str)
+[2026-02-28T11:19:48.792+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.793+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+[2026-02-28T11:19:48.794+0000] {subprocess.py:106} INFO -     self.connect()
+[2026-02-28T11:19:48.794+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 279, in connect
+[2026-02-28T11:19:48.795+0000] {subprocess.py:106} INFO -     self.sock = self._new_conn()
+[2026-02-28T11:19:48.795+0000] {subprocess.py:106} INFO -                 ^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.796+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 214, in _new_conn
+[2026-02-28T11:19:48.797+0000] {subprocess.py:106} INFO -     raise NewConnectionError(
+[2026-02-28T11:19:48.797+0000] {subprocess.py:106} INFO - urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7534980a0b60>: Failed to establish a new connection: [Errno 111] Connection refused
+[2026-02-28T11:19:48.798+0000] {subprocess.py:106} INFO - 
+[2026-02-28T11:19:48.798+0000] {subprocess.py:106} INFO - During handling of the above exception, another exception occurred:
+[2026-02-28T11:19:48.799+0000] {subprocess.py:106} INFO - 
+[2026-02-28T11:19:48.800+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2026-02-28T11:19:48.800+0000] {subprocess.py:106} INFO -   File "/opt/***/app/load_to_minio.py", line 31, in ensure_bucket_exists
+[2026-02-28T11:19:48.801+0000] {subprocess.py:106} INFO -     s3.head_bucket(Bucket=bucket_name)
+[2026-02-28T11:19:48.801+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/client.py", line 569, in _api_call
+[2026-02-28T11:19:48.802+0000] {subprocess.py:106} INFO -     return self._make_api_call(operation_name, kwargs)
+[2026-02-28T11:19:48.803+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.803+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/client.py", line 1005, in _make_api_call
+[2026-02-28T11:19:48.804+0000] {subprocess.py:106} INFO -     http, parsed_response = self._make_request(
+[2026-02-28T11:19:48.805+0000] {subprocess.py:106} INFO -                             ^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.805+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/client.py", line 1029, in _make_request
+[2026-02-28T11:19:48.806+0000] {subprocess.py:106} INFO -     return self._endpoint.make_request(operation_model, request_dict)
+[2026-02-28T11:19:48.807+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.807+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 119, in make_request
+[2026-02-28T11:19:48.808+0000] {subprocess.py:106} INFO -     return self._send_request(request_dict, operation_model)
+[2026-02-28T11:19:48.809+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.809+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 200, in _send_request
+[2026-02-28T11:19:48.810+0000] {subprocess.py:106} INFO -     while self._needs_retry(
+[2026-02-28T11:19:48.811+0000] {subprocess.py:106} INFO -           ^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.812+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 360, in _needs_retry
+[2026-02-28T11:19:48.812+0000] {subprocess.py:106} INFO -     responses = self._event_emitter.emit(
+[2026-02-28T11:19:48.813+0000] {subprocess.py:106} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.813+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/hooks.py", line 412, in emit
+[2026-02-28T11:19:48.813+0000] {subprocess.py:106} INFO -     return self._emitter.emit(aliased_event_name, **kwargs)
+[2026-02-28T11:19:48.814+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.814+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/hooks.py", line 256, in emit
+[2026-02-28T11:19:48.815+0000] {subprocess.py:106} INFO -     return self._emit(event_name, kwargs)
+[2026-02-28T11:19:48.815+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.816+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/hooks.py", line 239, in _emit
+[2026-02-28T11:19:48.816+0000] {subprocess.py:106} INFO -     response = handler(**kwargs)
+[2026-02-28T11:19:48.817+0000] {subprocess.py:106} INFO -                ^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.818+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 207, in __call__
+[2026-02-28T11:19:48.819+0000] {subprocess.py:106} INFO -     if self._checker(**checker_kwargs):
+[2026-02-28T11:19:48.820+0000] {subprocess.py:106} INFO -        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.821+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 284, in __call__
+[2026-02-28T11:19:48.821+0000] {subprocess.py:106} INFO -     should_retry = self._should_retry(
+[2026-02-28T11:19:48.822+0000] {subprocess.py:106} INFO -                    ^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.823+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 320, in _should_retry
+[2026-02-28T11:19:48.824+0000] {subprocess.py:106} INFO -     return self._checker(attempt_number, response, caught_exception)
+[2026-02-28T11:19:48.824+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.825+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+[2026-02-28T11:19:48.826+0000] {subprocess.py:106} INFO -     checker_response = checker(
+[2026-02-28T11:19:48.827+0000] {subprocess.py:106} INFO -                        ^^^^^^^^
+[2026-02-28T11:19:48.827+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+[2026-02-28T11:19:48.828+0000] {subprocess.py:106} INFO -     return self._check_caught_exception(
+[2026-02-28T11:19:48.828+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.829+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+[2026-02-28T11:19:48.829+0000] {subprocess.py:106} INFO -     raise caught_exception
+[2026-02-28T11:19:48.830+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 279, in _do_get_response
+[2026-02-28T11:19:48.831+0000] {subprocess.py:106} INFO -     http_response = self._send(request)
+[2026-02-28T11:19:48.831+0000] {subprocess.py:106} INFO -                     ^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.831+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 383, in _send
+[2026-02-28T11:19:48.832+0000] {subprocess.py:106} INFO -     return self.http_session.send(request)
+[2026-02-28T11:19:48.833+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.833+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 493, in send
+[2026-02-28T11:19:48.833+0000] {subprocess.py:106} INFO -     raise EndpointConnectionError(endpoint_url=request.url, error=e)
+[2026-02-28T11:19:48.834+0000] {subprocess.py:106} INFO - botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:9000/bronze"
+[2026-02-28T11:19:48.834+0000] {subprocess.py:106} INFO - 
+[2026-02-28T11:19:48.834+0000] {subprocess.py:106} INFO - During handling of the above exception, another exception occurred:
+[2026-02-28T11:19:48.835+0000] {subprocess.py:106} INFO - 
+[2026-02-28T11:19:48.835+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2026-02-28T11:19:48.836+0000] {subprocess.py:106} INFO -   File "/opt/***/app/main.py", line 14, in <module>
+[2026-02-28T11:19:48.836+0000] {subprocess.py:106} INFO -     from load_to_minio import upload_parquet, TODAY
+[2026-02-28T11:19:48.837+0000] {subprocess.py:106} INFO -   File "/opt/***/app/load_to_minio.py", line 37, in <module>
+[2026-02-28T11:19:48.837+0000] {subprocess.py:106} INFO -     ensure_bucket_exists(BUCKET)
+[2026-02-28T11:19:48.838+0000] {subprocess.py:106} INFO -   File "/opt/***/app/load_to_minio.py", line 34, in ensure_bucket_exists
+[2026-02-28T11:19:48.838+0000] {subprocess.py:106} INFO -     s3.create_bucket(Bucket=bucket_name)
+[2026-02-28T11:19:48.839+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/client.py", line 569, in _api_call
+[2026-02-28T11:19:48.839+0000] {subprocess.py:106} INFO -     return self._make_api_call(operation_name, kwargs)
+[2026-02-28T11:19:48.839+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.840+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/client.py", line 1005, in _make_api_call
+[2026-02-28T11:19:48.840+0000] {subprocess.py:106} INFO -     http, parsed_response = self._make_request(
+[2026-02-28T11:19:48.841+0000] {subprocess.py:106} INFO -                             ^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.842+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/client.py", line 1029, in _make_request
+[2026-02-28T11:19:48.843+0000] {subprocess.py:106} INFO -     return self._endpoint.make_request(operation_model, request_dict)
+[2026-02-28T11:19:48.844+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.845+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 119, in make_request
+[2026-02-28T11:19:48.845+0000] {subprocess.py:106} INFO -     return self._send_request(request_dict, operation_model)
+[2026-02-28T11:19:48.845+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.846+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 200, in _send_request
+[2026-02-28T11:19:48.846+0000] {subprocess.py:106} INFO -     while self._needs_retry(
+[2026-02-28T11:19:48.847+0000] {subprocess.py:106} INFO -           ^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.847+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 360, in _needs_retry
+[2026-02-28T11:19:48.848+0000] {subprocess.py:106} INFO -     responses = self._event_emitter.emit(
+[2026-02-28T11:19:48.848+0000] {subprocess.py:106} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.849+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/hooks.py", line 412, in emit
+[2026-02-28T11:19:48.849+0000] {subprocess.py:106} INFO -     return self._emitter.emit(aliased_event_name, **kwargs)
+[2026-02-28T11:19:48.849+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.850+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/hooks.py", line 256, in emit
+[2026-02-28T11:19:48.850+0000] {subprocess.py:106} INFO -     return self._emit(event_name, kwargs)
+[2026-02-28T11:19:48.851+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.851+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/hooks.py", line 239, in _emit
+[2026-02-28T11:19:48.852+0000] {subprocess.py:106} INFO -     response = handler(**kwargs)
+[2026-02-28T11:19:48.852+0000] {subprocess.py:106} INFO -                ^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.853+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 207, in __call__
+[2026-02-28T11:19:48.853+0000] {subprocess.py:106} INFO -     if self._checker(**checker_kwargs):
+[2026-02-28T11:19:48.854+0000] {subprocess.py:106} INFO -        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.854+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 284, in __call__
+[2026-02-28T11:19:48.855+0000] {subprocess.py:106} INFO -     should_retry = self._should_retry(
+[2026-02-28T11:19:48.855+0000] {subprocess.py:106} INFO -                    ^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.856+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 320, in _should_retry
+[2026-02-28T11:19:48.857+0000] {subprocess.py:106} INFO -     return self._checker(attempt_number, response, caught_exception)
+[2026-02-28T11:19:48.857+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.858+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+[2026-02-28T11:19:48.858+0000] {subprocess.py:106} INFO -     checker_response = checker(
+[2026-02-28T11:19:48.859+0000] {subprocess.py:106} INFO -                        ^^^^^^^^
+[2026-02-28T11:19:48.859+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+[2026-02-28T11:19:48.860+0000] {subprocess.py:106} INFO -     return self._check_caught_exception(
+[2026-02-28T11:19:48.861+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.861+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+[2026-02-28T11:19:48.862+0000] {subprocess.py:106} INFO -     raise caught_exception
+[2026-02-28T11:19:48.862+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 279, in _do_get_response
+[2026-02-28T11:19:48.863+0000] {subprocess.py:106} INFO -     http_response = self._send(request)
+[2026-02-28T11:19:48.863+0000] {subprocess.py:106} INFO -                     ^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.864+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 383, in _send
+[2026-02-28T11:19:48.865+0000] {subprocess.py:106} INFO -     return self.http_session.send(request)
+[2026-02-28T11:19:48.865+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-28T11:19:48.866+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 493, in send
+[2026-02-28T11:19:48.866+0000] {subprocess.py:106} INFO -     raise EndpointConnectionError(endpoint_url=request.url, error=e)
+[2026-02-28T11:19:48.867+0000] {subprocess.py:106} INFO - botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:9000/bronze"
+[2026-02-28T11:19:49.140+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-02-28T11:19:49.154+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-28T11:19:49.170+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=lakehouse_daily_pipeline, task_id=run_main_pipeline, run_id=scheduled__2026-02-27T00:00:00+00:00, execution_date=20260227T000000, start_date=20260228T111925, end_date=20260228T111949
+[2026-02-28T11:19:49.199+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-28T11:19:49.201+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 11 for task run_main_pipeline (Bash command failed. The command returned a non-zero exit code 1.; 254)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-28T11:19:49.235+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-02-28T11:19:49.261+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-28T11:19:49.264+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-02-28T11:28:28.515+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-28T11:28:28.547+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: lakehouse_daily_pipeline.run_main_pipeline scheduled__2026-02-27T00:00:00+00:00 [queued]>
+[2026-02-28T11:28:28.563+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: lakehouse_daily_pipeline.run_main_pipeline scheduled__2026-02-27T00:00:00+00:00 [queued]>
+[2026-02-28T11:28:28.564+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-02-28T11:28:28.586+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): run_main_pipeline> on 2026-02-27 00:00:00+00:00
+[2026-02-28T11:28:28.599+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'lakehouse_daily_pipeline', 'run_main_pipeline', 'scheduled__2026-02-27T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/lakehouse_dag.py', '--cfg-path', '/tmp/tmpz8b6r8e9']
+[2026-02-28T11:28:28.604+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=223) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-28T11:28:28.605+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask run_main_pipeline
+[2026-02-28T11:28:28.605+0000] {standard_task_runner.py:72} INFO - Started process 224 to run task
+[2026-02-28T11:28:28.772+0000] {task_command.py:467} INFO - Running <TaskInstance: lakehouse_daily_pipeline.run_main_pipeline scheduled__2026-02-27T00:00:00+00:00 [running]> on host edbb7a5cd83e
+[2026-02-28T11:28:28.926+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='DUC' AIRFLOW_CTX_DAG_ID='lakehouse_daily_pipeline' AIRFLOW_CTX_TASK_ID='run_main_pipeline' AIRFLOW_CTX_EXECUTION_DATE='2026-02-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-27T00:00:00+00:00'
+[2026-02-28T11:28:28.928+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-28T11:28:29.003+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-02-28T11:28:29.006+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/app/main.py']
+[2026-02-28T11:28:29.021+0000] {subprocess.py:99} INFO - Output:
+[2026-02-28T11:28:34.997+0000] {subprocess.py:106} INFO - 2026-02-28 11:28:34,996 - INFO - Starting Lakehouse Bronze Pipeline...
+[2026-02-28T11:28:34.998+0000] {subprocess.py:106} INFO - 2026-02-28 11:28:34,997 - INFO -  Fetching VN30 stock data
+[2026-02-28T11:28:35.438+0000] {subprocess.py:106} INFO - 2026-02-28 11:28:35,438 - INFO - generated new fontManager
+[2026-02-28T11:30:49.659+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,658 - INFO - Uploading 30 tickers as Parquet to MinIO...
+[2026-02-28T11:30:49.772+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,772 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/ACB.parquet
+[2026-02-28T11:30:49.790+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,789 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/BCM.parquet
+[2026-02-28T11:30:49.808+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,808 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/BID.parquet
+[2026-02-28T11:30:49.826+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,826 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/BVH.parquet
+[2026-02-28T11:30:49.844+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,844 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/CTG.parquet
+[2026-02-28T11:30:49.860+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,860 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/FPT.parquet
+[2026-02-28T11:30:49.877+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,877 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/GAS.parquet
+[2026-02-28T11:30:49.892+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,892 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/GVR.parquet
+[2026-02-28T11:30:49.907+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,907 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/HDB.parquet
+[2026-02-28T11:30:49.923+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,923 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/HPG.parquet
+[2026-02-28T11:30:49.942+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,942 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/MBB.parquet
+[2026-02-28T11:30:49.959+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,959 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/MSN.parquet
+[2026-02-28T11:30:49.976+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,976 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/MWG.parquet
+[2026-02-28T11:30:49.992+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:49,992 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/PLX.parquet
+[2026-02-28T11:30:50.007+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,007 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/POW.parquet
+[2026-02-28T11:30:50.024+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,024 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/SAB.parquet
+[2026-02-28T11:30:50.040+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,040 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/SHB.parquet
+[2026-02-28T11:30:50.055+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,055 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/SSB.parquet
+[2026-02-28T11:30:50.071+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,071 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/SSI.parquet
+[2026-02-28T11:30:50.088+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,088 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/STB.parquet
+[2026-02-28T11:30:50.103+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,103 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/TCB.parquet
+[2026-02-28T11:30:50.118+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,118 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/TPB.parquet
+[2026-02-28T11:30:50.134+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,134 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VCB.parquet
+[2026-02-28T11:30:50.151+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,151 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VHM.parquet
+[2026-02-28T11:30:50.170+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,170 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VIB.parquet
+[2026-02-28T11:30:50.187+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,187 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VIC.parquet
+[2026-02-28T11:30:50.203+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,203 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VJC.parquet
+[2026-02-28T11:30:50.219+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,219 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VNM.parquet
+[2026-02-28T11:30:50.234+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,234 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VPB.parquet
+[2026-02-28T11:30:50.255+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,255 - INFO - Uploaded Parquet -> s3://bronze/stock_data/vn30/ingested_date=2026-02-28/VRE.parquet
+[2026-02-28T11:30:50.256+0000] {subprocess.py:106} INFO - 2026-02-28 11:30:50,255 - INFO - Pipeline complete! Check MinIO at http://localhost:9001
+[2026-02-28T11:30:50.257+0000] {subprocess.py:106} INFO - [1/30] Fetching: ACB...
+[2026-02-28T11:30:50.257+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.258+0000] {subprocess.py:106} INFO - [2/30] Fetching: BCM...
+[2026-02-28T11:30:50.259+0000] {subprocess.py:106} INFO -   -> 1996 rows
+[2026-02-28T11:30:50.259+0000] {subprocess.py:106} INFO - [3/30] Fetching: BID...
+[2026-02-28T11:30:50.260+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.260+0000] {subprocess.py:106} INFO - [4/30] Fetching: BVH...
+[2026-02-28T11:30:50.261+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.262+0000] {subprocess.py:106} INFO - [5/30] Fetching: CTG...
+[2026-02-28T11:30:50.262+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.263+0000] {subprocess.py:106} INFO - [6/30] Fetching: FPT...
+[2026-02-28T11:30:50.263+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.264+0000] {subprocess.py:106} INFO - [7/30] Fetching: GAS...
+[2026-02-28T11:30:50.264+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.265+0000] {subprocess.py:106} INFO - [8/30] Fetching: GVR...
+[2026-02-28T11:30:50.265+0000] {subprocess.py:106} INFO -   -> 1977 rows
+[2026-02-28T11:30:50.265+0000] {subprocess.py:106} INFO - [9/30] Fetching: HDB...
+[2026-02-28T11:30:50.266+0000] {subprocess.py:106} INFO -   -> 2031 rows
+[2026-02-28T11:30:50.266+0000] {subprocess.py:106} INFO - [10/30] Fetching: HPG...
+[2026-02-28T11:30:50.267+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.267+0000] {subprocess.py:106} INFO - [11/30] Fetching: MBB...
+[2026-02-28T11:30:50.268+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.268+0000] {subprocess.py:106} INFO - [12/30] Fetching: MSN...
+[2026-02-28T11:30:50.269+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.269+0000] {subprocess.py:106} INFO - [13/30] Fetching: MWG...
+[2026-02-28T11:30:50.269+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.270+0000] {subprocess.py:106} INFO - [14/30] Fetching: PLX...
+[2026-02-28T11:30:50.271+0000] {subprocess.py:106} INFO -   -> 2212 rows
+[2026-02-28T11:30:50.272+0000] {subprocess.py:106} INFO - [15/30] Fetching: POW...
+[2026-02-28T11:30:50.272+0000] {subprocess.py:106} INFO -   -> 1985 rows
+[2026-02-28T11:30:50.273+0000] {subprocess.py:106} INFO - [16/30] Fetching: SAB...
+[2026-02-28T11:30:50.273+0000] {subprocess.py:106} INFO -   -> 2303 rows
+[2026-02-28T11:30:50.274+0000] {subprocess.py:106} INFO - [17/30] Fetching: SHB...
+[2026-02-28T11:30:50.275+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.275+0000] {subprocess.py:106} INFO - [18/30] Fetching: SSB...
+[2026-02-28T11:30:50.275+0000] {subprocess.py:106} INFO -   -> 1230 rows
+[2026-02-28T11:30:50.276+0000] {subprocess.py:106} INFO - [19/30] Fetching: SSI...
+[2026-02-28T11:30:50.277+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.277+0000] {subprocess.py:106} INFO - [20/30] Fetching: STB...
+[2026-02-28T11:30:50.278+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.278+0000] {subprocess.py:106} INFO - [21/30] Fetching: TCB...
+[2026-02-28T11:30:50.278+0000] {subprocess.py:106} INFO -   -> 1933 rows
+[2026-02-28T11:30:50.279+0000] {subprocess.py:106} INFO - [22/30] Fetching: TPB...
+[2026-02-28T11:30:50.279+0000] {subprocess.py:106} INFO -   -> 1962 rows
+[2026-02-28T11:30:50.280+0000] {subprocess.py:106} INFO - [23/30] Fetching: VCB...
+[2026-02-28T11:30:50.280+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.281+0000] {subprocess.py:106} INFO - [24/30] Fetching: VHM...
+[2026-02-28T11:30:50.281+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.282+0000] {subprocess.py:106} INFO - [25/30] Fetching: VIB...
+[2026-02-28T11:30:50.282+0000] {subprocess.py:106} INFO -   -> 2273 rows
+[2026-02-28T11:30:50.283+0000] {subprocess.py:106} INFO - [26/30] Fetching: VIC...
+[2026-02-28T11:30:50.283+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.284+0000] {subprocess.py:106} INFO - [27/30] Fetching: VJC...
+[2026-02-28T11:30:50.284+0000] {subprocess.py:106} INFO -   -> 2249 rows
+[2026-02-28T11:30:50.285+0000] {subprocess.py:106} INFO - [28/30] Fetching: VNM...
+[2026-02-28T11:30:50.286+0000] {subprocess.py:106} INFO -   -> 2609 rows
+[2026-02-28T11:30:50.286+0000] {subprocess.py:106} INFO - [29/30] Fetching: VPB...
+[2026-02-28T11:30:50.287+0000] {subprocess.py:106} INFO -   -> 2130 rows
+[2026-02-28T11:30:50.287+0000] {subprocess.py:106} INFO - [30/30] Fetching: VRE...
+[2026-02-28T11:30:50.288+0000] {subprocess.py:106} INFO -   -> 2074 rows
+[2026-02-28T11:30:50.753+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-02-28T11:30:50.791+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-28T11:30:50.792+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=lakehouse_daily_pipeline, task_id=run_main_pipeline, run_id=scheduled__2026-02-27T00:00:00+00:00, execution_date=20260227T000000, start_date=20260228T112828, end_date=20260228T113050
+[2026-02-28T11:30:50.844+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-28T11:30:50.866+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-28T11:30:50.870+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
