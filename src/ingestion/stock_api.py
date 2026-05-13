@@ -2,8 +2,7 @@
 import time
 import pandas as pd
 from datetime import datetime, timedelta
-from vnstock import Vnstock
-
+from vnstock.api.quote import Quote
 # VN30 index constituents
 VN30 = [
     "ACB", "BCM", "BID", "BVH", "CTG", "FPT", "GAS", "GVR", "HDB", "HPG",
@@ -23,7 +22,7 @@ def get_stock_data():
     for i, ticker in enumerate(VN30):
         print(f"[{i+1}/{len(VN30)}] Fetching: {ticker}...")
         try:
-            df = Vnstock().stock(symbol=ticker, source='VCI').quote.history(
+            df = Quote(symbol=ticker, source='VCI').history(
                 start=START_DATE,
                 end=END_DATE,
                 interval='1D'
