@@ -89,12 +89,10 @@ lake_house_prj/
 ├── requirements.txt    # Python dependencies
 ├── .gitignore          # Git ignore rules
 └── README.md           # Project documentation
-<<<<<<< HEAD
+
 ```
 ---
-=======
 
->>>>>>> 70d57fe (Update)
 
 ## How to Run
 
